@@ -15,7 +15,7 @@
         @extends('layout/app')
         @section('content')
             <div class="container-fluid ">
-                <h1>Hello word</h1>
+                
             </div>
         @endsection
 

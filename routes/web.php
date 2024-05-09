@@ -25,10 +25,14 @@ Route::post('/Voiture/{id}', [voitureControler::class ,'update'])->name('voiture
 Route::delete('/Voiture/{voiture}/suppr', [voitureControler::class ,'destroy'])->name('voiture.destroy');
 
 //COMMANDE
-Route::get('/indexCom', [commandeControler::class , 'index'])->name('commande.store');
+Route::get('/indexCom', [commandeControler::class , 'index'])->name('commande.index');
+
+//LISTE VENTE
+
 
 //UTILISATEUR
-Route::get('/indexUtilisateur', [UtilisateurController::class , 'index'])->name('utilisateur.store');
+Route::get('/indexUtilisateur', [UtilisateurController::class , 'index'])->name('utilisateur.index');
+
 
 
 //CLIENT
