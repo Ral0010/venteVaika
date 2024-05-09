@@ -10,8 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>voiture</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
-    {{-- <link href="{{ asset('dist/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('icon/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('icon/css/fontawesome.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css">
@@ -170,8 +169,7 @@
         @endsection
    {{--  script bootstrap  --}}
    <script src="{{ asset('dist/jquery/jquery.min.js') }}"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-   {{-- <script src="{{ asset('dist/js/bootstrap.bundle.min.js') }}"></script> --}}
+   <script src="{{ asset('dist/js/bootstrap.bundle.min.js') }}"></script>
    <script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
 	<script>

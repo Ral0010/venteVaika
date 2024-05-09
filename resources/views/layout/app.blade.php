@@ -5,11 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>menuPrincipale</title>
-    <link href="{{ asset('dist/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('icon/css/all.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('icon/css/fontawesome.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css">
-
 </head>
     <style>
         .nav-pills li a:hover {
@@ -34,19 +29,19 @@
                     </a>
                 </li>
                 <li class="nav-item py-2 py-sm-0">
-                    <a href="http://127.0.0.1:8000/com" class="nav-link text-white">
+                    <a href="{{ route('commande.index') }}" class="nav-link text-white">
                         <i class="fa-solid fa-layer-group"></i>
                         <span class="nav-link-text">Commande</span>
                     </a>
                 </li>
                 <li class="nav-item py-2 py-sm-0">
-                    <a href="http://127.0.0.1:8000/listeV" class="nav-link text-white">
+                    <a href="" class="nav-link text-white">
                         <i class="fa-solid fa-diamond"></i>
                         <span class="nav-link-text">Liste de ventes</span>
                     </a>
                 </li>
                 <li class="nav-item py-2 py-sm-0">
-                    <a href="http://127.0.0.1:8000/user" class="nav-link text-white">
+                    <a href="{{ route('utilisateur.index') }}" class="nav-link text-white">
                         <i class="fa-solid fa-users"></i>
                         <span class="nav-link-text">Utilisateur</span>
                     </a>
@@ -79,15 +74,5 @@
         </div>
     </div>    
          @yield('content')
-
-   <script src="{{ asset('dist/jquery/jquery.min.js') }}"></script>
-   <script src="{{ asset('dist/js/bootstrap.bundle.min.js') }}"></script>
-   <script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
-	<script>
-	$(document).ready(function () {
-	    $('#tbV').DataTable();
-	});
-	</script>
 </body>
 </html>
