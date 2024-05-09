@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\voitureControler;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\commandeControler;
@@ -29,5 +30,9 @@ Route::get('/indexCom', [commandeControler::class , 'index'])->name('commande.st
 //UTILISATEUR
 Route::get('/indexUtilisateur', [UtilisateurController::class , 'index'])->name('utilisateur.store');
 
+
+//CLIENT
+Route::get('/Client', [ClientController:: class, 'index'])->name('client.index');
+Route::post('/Client', [ClientController::class, 'store'])->name('client.store');
 
 
