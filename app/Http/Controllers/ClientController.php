@@ -25,4 +25,39 @@ class ClientController extends Controller
 
         return redirect()->route('client.index')->with('success', 'Client ajouté avec succès.');
     }
+
+
+    public function edit($idCli)
+    {
+        $modific = client::where('idCli', $idCli)->first();
+        return view('Client.edit', compact('modific'));
+    }
+
+    
+    public function update(Request $request, $idCli)
+    {
+        $validate = $request->validate([
+            'nomCli' =>'required' ,
+            'telCli' =>'required' ,
+            'cinCli' =>'required' ,
+            'adrCli' =>'required'
+        ]);
+        
+        $client = client::findOrFail($idCli);
+        $client->update($validate);
+
+        return redirect()->route('client.index')->with('status', 'Modification réussie!!!');
+    }
+
+
+
+
+
+    //Suppression
+    public function destroy($client)
+    {
+        client::where('idCli', $client)->delete();
+     
+        return redirect()->route('client.index')->with('status', 'Suppresion réussie!!!');
+    }
 }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('moteur', 20);
             $table->string('couleur', 20);
             $table->decimal('prixV', 15, 2);
+            $table->string('etat', 20)->default('Disponible');
             $table->timestamps();
         });
     }

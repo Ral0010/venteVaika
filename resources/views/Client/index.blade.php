@@ -75,7 +75,7 @@
                                                                       placeholder="..." required>
                                                           </div>
                                                     </div>
-                                                    <div class="row row-cols-2">
+                                                    <div class="col-sm">
                                                         <label for="telCli"><strong>Téléphone</strong></label>
                                                         <input type="text" class="form-control" id="telCli" name="telCli"
                                                                 placeholder="..." required>
@@ -121,32 +121,21 @@
                                                         <button class="btn" type="button" id="tabDown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             <span class="fas fa-ellipsis"></span>
                                                         </button>
-                                                        {{-- <div class="dropdown-menu" aria-labelledby="tabDown">
+                                                        <div class="dropdown-menu" aria-labelledby="tabDown" style="z-index: 1">
                                                             <span>
-                                                                <a href="{{ route('client.edit', ['id'=> $voiture->idV]) }}" class="dropdown-item"><i class="fas fa-trash text-primary"></i> <span>Modifier</span></a>
+                                                                <a href="{{ route('client.edit', ['idCli'=> $client->idCli]) }}" class="dropdown-item"><i class="fas fa-trash text-primary"></i> <span>Modifier</span></a>
                                                             </span>
                                                             <span>
-                                                                <form action="{{ route('client.destroy', ['voiture'=> $voiture->idV]) }}" method="POST">
+                                                                <form action="{{ route('client.destroy', ['client'=> $client->idCli]) }}" method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <button type="submit"  class="dropdown-item"><i class="fas fa-trash text-danger"></i><span>Supprimer</span></button>
                                                                 </form>
                                                             </span>
-                                                        </div> --}}
+                                                        </div>
                                                         
                                                     </div>
-                                                    {{-- <span>
-                                                        <a href="{{ route('voiture.edit', ['id'=> $voiture->idV]) }}" 
-                                                            class="btn btn-outline-primary"><i class="fas- solid  fa-edit"></i>
-                                                    </a>
-                                                    </span>
-                                                    <span>
-                                                        <form action="{{ route('voiture.destroy', ['voiture'=> $voiture->idV]) }}" method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                        </form>
-                                                    </span> --}}
+                                
                                                 </td>
                                             </tr>
                                             @endforeach
