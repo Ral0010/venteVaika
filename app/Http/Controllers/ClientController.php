@@ -25,4 +25,12 @@ class ClientController extends Controller
 
         return redirect()->route('client.index')->with('success', 'Client ajouté avec succès.');
     }
+
+    //Suppression
+    public function destroy($client)
+    {
+        client::where('idCli', $client)->delete();
+     
+        return redirect()->route('client.index')->with('status', 'Suppresion réussie!!!');
+    }
 }
