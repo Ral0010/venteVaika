@@ -144,18 +144,7 @@
                                                         </div>
                                                         
                                                     </div>
-                                                    {{-- <span>
-                                                        <a href="{{ route('voiture.edit', ['id'=> $voiture->idV]) }}" 
-                                                            class="btn btn-outline-primary"><i class="fas- solid  fa-edit"></i>
-                                                    </a>
-                                                    </span>
-                                                    <span>
-                                                        <form action="{{ route('voiture.destroy', ['voiture'=> $voiture->idV]) }}" method="POST">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                        </form>
-                                                    </span> --}}
+                
                                                 </td>
                                             </tr>
                                             @endforeach

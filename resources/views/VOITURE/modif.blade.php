@@ -21,9 +21,7 @@
     <div class="d-flex">
         @extends('layout/app')
         @section('content')
-            <div class="container">
-                <div class="app-content pt-3 p-md-3 p-lg-4 container-fluid" style=" float: right;">
-                    @if ($errors->any())
+                @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -31,55 +29,55 @@
                             @endforeach
                         </ul>
                     </div>
-                @endif   
-                {{--ceci le directive --}}
+                @endif 
+            <div class="container">
+                <div class="container bg-light ">
+                    <h1 style="font-family : cambria ; text-align : center; padding: 5px;"><strong>MODIFICATION</strong></h1>
+                </div>            
                 <form action="{{ route('voiture.update', ['id'=> $modific->idV]) }}" method="POST" >
+                    {{--ceci le directive --}}
                     @method('POST')
                     @csrf
                         {{--ceci le directive --}}
-                          <div class="modal-body">
-                          <h1 class="text-center">MODIFICATION</h1>
-                                <div class="row">
-                                      <div class="col-sm">
-                                            <label for="numIm"><strong>N° Immatriculation</strong></label>
-                                            <input type="text" class="form-control" id="numIm" name="numIm"
-                                                  value="{{ $modific->numIm }}">
-                                      </div>
-                                </div>
-                                <div class="row row-cols-2">
-                                      
-                                    <div class="col-sm-4">
-                                          <label for="modelV"><strong>Modèle</strong></label>
-                                          <input type="text" class="form-control" id="modelV" name="modelV"
-                                                 value="{{ $modific->modelV}}">
-                                      </div>
-                                      <div class="col-sm">
-                                            <label for="couleur"><strong>Couleur</strong></label>
-                                            <input type="text" class="form-control" id="couleur" name="couleur"
-                                                value="{{ $modific->couleur }}">
-                                        </div>
-                                </div>
-                                <div class="row row-cols-2">                                                 
-                                    <div class="col-sm">
-                                        <label for="moteur"><strong>Moteur</strong></label>
-                                        <input type="text" class="form-control" id="moteur" name="moteur"
-                                        value= "{{ $modific->moteur }}">
-                                  </div>
-                                    <div class="col-sm">
-                                        <label for="prixV"><strong>Prix</strong></label>
-                                        <input type="text" class="form-control" id="prixV" name="prixV" value=" {{ $modific->prixV }} "
-                                        >
-                                    </div>
-                                </div>
-                          </div>
-                          <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary mb-3"
-                                      data-bs-dismiss="modal">Annuler</button>
-                                <button type="submit" class="btn btn-success mb-3" name="modif">Modifier</button>
-                          </div>
-                    </form>
-                </div>    
-            </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col-6">
+                            <label for="numIm"><strong>N° Immatriculation</strong></label>
+                            <input type="text" class="form-control" id="numIm" name="numIm"
+                                    value="{{ $modific->numIm }}">
+                        </div>
+                        <div class="col-6">
+                            <label for="modelV"><strong>Modèle</strong></label>
+                            <input type="text" class="form-control" id="modelV" name="modelV"
+                                    value="{{ $modific->modelV}}">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">   
+                        <div class="col-sm-4">
+                            <label for="couleur"><strong>Couleur</strong></label>
+                            <input type="text" class="form-control" id="couleur" name="couleur"
+                                value="{{ $modific->couleur }}">
+                        </div>                                              
+                        <div class="col-sm-4">
+                            <label for="moteur"><strong>Moteur</strong></label>
+                            <input type="text" class="form-control" id="moteur" name="moteur"
+                            value= "{{ $modific->moteur }}">
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="prixV"><strong>Prix</strong></label>
+                            <input type="text" class="form-control" id="prixV" name="prixV" value=" {{ $modific->prixV }} ">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row justify-content-md-center ">
+                        <div class="col-auto me-auto">
+                            <a href="{{ route('voiture.index') }}"class="link-secondary link-underline link-underline-opacity-0"><i class="fa-solid fa-left-long" style="color: #0d6efd; font-size : 40px"></i></a>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-success" name="modif">Enregistrer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>     
         @endsection
    {{--  script bootstrap  --}}
    <script src="{{ asset('dist/jquery/jquery.min.js') }}"></script>

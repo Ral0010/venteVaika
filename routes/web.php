@@ -25,7 +25,7 @@ Route::post('/Voiture/{id}', [voitureControler::class ,'update'])->name('voiture
 Route::delete('/Voiture/{voiture}/suppr', [voitureControler::class ,'destroy'])->name('voiture.destroy');
 
 //COMMANDE
-Route::get('/indexCom', [commandeControler::class , 'index'])->name('commande.index');
+Route::get('/Com', [commandeControler::class , 'index'])->name('commande.index');
 
 //LISTE VENTE
 
