@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+
 
 class commandeControler extends Controller
 {
@@ -11,7 +14,30 @@ class commandeControler extends Controller
      */
     public function index()
     {
-       return view('commande.com');
+        return view('commande.com');
+    }
+
+    public function AjoutPanier(Request $req)
+    {
+        //Enregistrement dans la table temp
+        $voitureId = $req->input('voiture');
+        DB::table('commande_temp')->insert([
+            'idV' => $voitureId,
+            'numIm' => $req->input('numIm'),
+            'modelV' => $req->input('modelV'),
+            'moteur' => $req->input('moteur'),
+            'couleur' => $req->input('couleur'),
+            'prixV' => $req->input('prixV'),
+        ]);
+
+        //Mise à jour du status de la voiture 
+        DB::table('voitures')
+            ->where('idV', $voitureId)
+            ->update([
+                'etat' => "EN_COURS",
+            ]);
+
+        return redirect()->route('voiture.index')->with('status', 'Ajout dans le panier');
     }
 
     /**

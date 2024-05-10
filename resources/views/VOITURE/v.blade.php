@@ -141,6 +141,19 @@
                                                                     <button type="submit"  class="dropdown-item"><i class="fas fa-trash text-danger"></i><span>Supprimer</span></button>
                                                                 </form>
                                                             </span>
+                                                            <span>
+                                                                <form action="{{ route('commande.AjoutPanier') }}" method="POST">
+                                                                    @csrf
+                                                                    @method('POST')
+                                                                    <input type="hidden" name="voiture" value="{{ $voiture->idV }}">
+                                                                    <input type="hidden" name="numIm" value="{{ $voiture->numIm }}">
+                                                                    <input type="hidden" name="modelV" value="{{ $voiture->modelV }}">
+                                                                    <input type="hidden" name="moteur" value="{{ $voiture->moteur }}">
+                                                                    <input type="hidden" name="couleur" value="{{ $voiture->couleur }}">
+                                                                    <input type="hidden" name="prixV" value="{{ $voiture->prixV }}">
+                                                                    <button type="submit" class="dropdown-item"><i class="fas fa-trash text-success"></i><span>Commander</span></button>
+                                                                </form>
+                                                            </span>
                                                         </div>
                                                         
                                                     </div>
