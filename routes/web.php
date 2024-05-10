@@ -5,6 +5,7 @@ use App\Http\Controllers\voitureControler;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\commandeControler;
 use App\Http\Controllers\UtilisateurController;
+use App\Http\Controllers\VenteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,6 @@ Route::post('/AnnulerCommande', [commandeControler::class, 'AnnulerCommande'])->
 
 
 
-//LISTE VENTE
-
-
 //UTILISATEUR
 Route::get('/indexUtilisateur', [UtilisateurController::class, 'index'])->name('utilisateur.index');
 
@@ -46,3 +44,7 @@ Route::post('/Client', [ClientController::class, 'store'])->name('client.store')
 Route::delete('/Client/{client}/destroy', [ClientController::class, 'destroy'])->name('client.destroy');
 Route::get('/Client/{idCli}/edit', [ClientController::class, 'edit'])->name('client.edit');
 Route::post('/Client/{idCli}', [ClientController::class, 'update'])->name('client.update');
+
+//VENTE
+Route::get('/Vente', [VenteController::class, 'index'])->name('vente.index');
+

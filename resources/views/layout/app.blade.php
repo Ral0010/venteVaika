@@ -28,22 +28,25 @@
                         <span class="nav-link-text">Gestion des voitures</span>
                     </a>
                 </li>
+                <hr>
                 <li class="nav-item py-2 py-sm-0">
                     <a href="{{ route('commande.index') }}" class="nav-link text-white">
                         <i class="fa-solid fa-layer-group"></i>
-                        <span class="nav-link-text">Commande</span>
+                        <span class="nav-link-text">Panier</span>
                     </a>
                 </li>
+                <hr>
                 <li class="nav-item py-2 py-sm-0">
                     <a href="" class="nav-link text-white">
                         <i class="fa-solid fa-diamond"></i>
-                        <span class="nav-link-text">Liste de ventes</span>
+                        <span class="nav-link-text">Historique des ventes</span>
                     </a>
                 </li>
+                <hr>
                 <li class="nav-item py-2 py-sm-0">
-                    <a href="{{ route('utilisateur.index') }}" class="nav-link text-white">
+                    <a href="{{ route('client.index') }}" class="nav-link text-white">
                         <i class="fa-solid fa-users"></i>
-                        <span class="nav-link-text">Utilisateur</span>
+                        <span class="nav-link-text">Clients</span>
                     </a>
                 </li>
                 
