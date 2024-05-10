@@ -41,10 +41,10 @@ Route::get('/indexUtilisateur', [UtilisateurController::class, 'index'])->name('
 //CLIENT
 Route::get('/Client', [ClientController::class, 'index'])->name('client.index');
 Route::post('/Client', [ClientController::class, 'store'])->name('client.store');
+Route::post('/Client2', [ClientController::class, 'store2commande'])->name('client.store2commande');
 Route::delete('/Client/{client}/destroy', [ClientController::class, 'destroy'])->name('client.destroy');
 Route::get('/Client/{idCli}/edit', [ClientController::class, 'edit'])->name('client.edit');
 Route::post('/Client/{idCli}', [ClientController::class, 'update'])->name('client.update');
 
 //VENTE
 Route::get('/Vente', [VenteController::class, 'index'])->name('vente.index');
-
