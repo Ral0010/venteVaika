@@ -29,7 +29,6 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <select class="form-select" name="client" defaultValue="">
-                                    <option value="" selected disabled hidden>Choisir un client</option>
                                     @foreach ($listeCli as $client)
                                         <option value="{{ $client->idCli }}" class="form-select">
                                             {{ $client->nomCli }} &nbsp;&nbsp; CIN: {{$client->cinCli}}&nbsp; &nbsp; Tel: {{$client->telCli}}&nbsp; &nbsp; Adresse: {{$client->adrCli}}
@@ -143,7 +142,7 @@
                                                         @csrf
                                                         @method('POST')
                                                         <input type="hidden" name="voiture" value="{{ $pani->idV }}">
-                                                        <button type="submit" class="btn btn-danger btn-sm">X</button>
+                                                        <button type="submit" class="btn"><i class="fas fa-trash text-danger"></i></button>                                                     
                                                     </form>
                                                 </td>
                                             </tr>
