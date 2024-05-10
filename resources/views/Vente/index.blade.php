@@ -32,11 +32,10 @@
                         <li class="alert alert-danger "> {{ $error}} </li>
                     @endforeach
                 </ul>
-                <br>
                 <div class="app-content container">
                     <div class="card" style="min-height: 600px">  
-                        <div class="card-header">
-                                <h1 style="font-family : cambria ; text-align : center;"><strong>Historique des ventes</strong></h1>
+                        <div class="card-header" style="float: left">
+                                <h1 style="font-family : cambria ;"><strong>Historique des ventes</strong></h1>
                         </div>      
                         <div class="card-body">
                             <div class="row g-4 mb-4">

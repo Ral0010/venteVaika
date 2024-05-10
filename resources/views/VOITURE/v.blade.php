@@ -31,142 +31,151 @@
                         <li class="alert alert-danger "> {{ $error}} </li>
                     @endforeach
                 </ul>
-                <div class="container bg-light ">
-                        <h1 style="font-family : cambria ; text-align : center; padding: 15px;"><strong>LISTE DES VOITURES</strong></h1>
-                </div>
-                <div class="app-content container">
-                    <div>
-                        <div class="row py-3">
-                                <div class="col-md-12">
-                                    <div class="float-end d-flex">
-                                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                                data-bs-target="#ajoutModal">
-                                                <i class="fas fa-plus"></i>&nbsp;<span>Nouveau</span>
-                                            </button>
-                                    </div> 
+                <div class="card">
+                    <div class="card-header" style="align-items: center">
+                        <div class="container bg-light ">
+                            <div class="">
+                                <div style="float: left;">
+                                    <h1 style="font-family : cambria ; text-align : center;"><strong>Voitures disponible</strong></h1>
                                 </div>
-                        </div>
-                        <div class="modal fade" id="ajoutModal" tabindex="-1" aria-labelledby="ajoutModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                  <div class="modal-content">
-                                        <div class="modal-header">
-                                              <p>
-                                                <h1 class="modal-title" id="ajoutModalLabel"><strong>AJOUT VOITURE</strong></h1>
-                                              </p>
-                                              <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
-                                        <form action="{{ route('voiture.store') }}" method="GET" >
-                                            {{--ceci le directive --}}
-                                            @method('POST')
-                                            @csrf
-                                            {{--ceci le directive --}}
-                                              <div class="modal-body">
-                                                    <div class="row">
-                                                          <div class="col-sm">
-                                                                <label for="numIm"><strong>N° Immatriculation</strong></label>
-                                                                <input type="text" class="form-control" id="numIm" name="numIm"
-                                                                      placeholder="..." required>
-                                                          </div>
-                                                    </div>
-                                                    <div class="row row-cols-2">
-                                                          
-                                                        <div class="col-sm-4">
-                                                              <label for="modelV"><strong>Modèle</strong></label>
-                                                              <input type="text" class="form-control" id="modelV" name="modelV"
-                                                                      placeholder="..." required>
-                                                          </div>
-                                                          <div class="col-sm">
-                                                                <label for="couleur"><strong>Couleur</strong></label>
-                                                                <input type="text" class="form-control" id="couleur" name="couleur"
-                                                                    placeholder="...">
-                                                            </div>
-                                                    </div>
-                                                    <div class="row row-cols-2">                                                 
-                                                        <div class="col-sm">
-                                                            <label for="moteur"><strong>Moteur</strong></label>
-                                                            <input type="text" class="form-control" id="moteur" name="moteur"
-                                                                  placeholder="...">
-                                                      </div>
-                                                        <div class="col-sm">
-                                                            <label for="prixV"><strong>Prix</strong></label>
-                                                            <input type="text" class="form-control" id="prixV" name="prixV"
-                                                                    placeholder="..." required>
-                                                        </div>
-                                                    </div>
-                                              </div>
-                                              <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary mb-3"
-                                                          data-bs-dismiss="modal">Annuler</button>
-                                                    <button type="submit" class="btn btn-success mb-3" name="ajout_v">Ajouter</button>
-                                              </div>
-                                        </form>
-                                  </div>
-                            </div>
-                      </div>
-                        <div class="row g-4 mb-4">
-                            <div class="table-responsive">
-                                <table class="table table-hover mb-0" id="tbV">
-                                        <thead>
-                                            <tr>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col" class="text-center">N° Immatriculation</th>
-                                                    <th scope="col"class="text-center">model</th>
-                                                    <th scope="col"class="text-center">Moteur</th>
-                                                    <th scope="col"class="text-center">Prix(MGA)</th>
-                                                    <th scope="col"class="text-center">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($result as $voiture)
-                                            <tr >
-                                                <td class="col text-right">{{ $voiture->idV}}</td>
-                                                <td class="col text-center">{{ $voiture->numIm}}</td>
-                                                <td class="col text-center">{{ $voiture->modelV}}</td>
-                                                <td class="col text-center">{{ $voiture->moteur}}</td>
-                                                <td class="col text-center">{{ $voiture->prixV}}</td>
-                                                <td class="col text-center">
-                                                    <div class="dropdown">
-                                                        <button class="btn" type="button" id="tabDown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <span class="fas fa-ellipsis"></span>
-                                                        </button>
-                                                        <div class="dropdown-menu" aria-labelledby="tabDown">
-                                                            <span>
-                                                                <a href="{{ route('voiture.edit', ['id'=> $voiture->idV]) }}" class="dropdown-item"><i class="fas fa-trash text-primary"></i> <span>Modifier</span></a>
-                                                            </span>
-                                                            <span>
-                                                                <form action="{{ route('voiture.destroy', ['voiture'=> $voiture->idV]) }}" method="POST">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="submit"  class="dropdown-item"><i class="fas fa-trash text-danger"></i><span>Supprimer</span></button>
-                                                                </form>
-                                                            </span>
-                                                            <span>
-                                                                <form action="{{ route('commande.AjoutPanier') }}" method="POST">
-                                                                    @csrf
-                                                                    @method('POST')
-                                                                    <input type="hidden" name="voiture" value="{{ $voiture->idV }}">
-                                                                    <input type="hidden" name="numIm" value="{{ $voiture->numIm }}">
-                                                                    <input type="hidden" name="modelV" value="{{ $voiture->modelV }}">
-                                                                    <input type="hidden" name="moteur" value="{{ $voiture->moteur }}">
-                                                                    <input type="hidden" name="couleur" value="{{ $voiture->couleur }}">
-                                                                    <input type="hidden" name="prixV" value="{{ $voiture->prixV }}">
-                                                                    <button type="submit" class="dropdown-item"><i class="fas fa-trash text-success"></i><span>Commander</span></button>
-                                                                </form>
-                                                            </span>
-                                                        </div>
-                                                     
-                                                    </div>
-                
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                </table>
-                            </div>
+                                <div style="float:right;margin-top: 10px" >
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                        data-bs-target="#ajoutModal">
+                                        <i class="fas fa-plus"></i>&nbsp;<span>Nouveau</span>
+                                    </button>
+                                </div>
+                            </div>    
                         </div>
                     </div>
-                </div>    
+
+                    <div class="card-body" style="min-height: 500px">
+                        <div class="app-content container">
+                            <div>
+                            
+                                <div class="modal fade" id="ajoutModal" tabindex="-1" aria-labelledby="ajoutModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                          <div class="modal-content">
+                                                <div class="modal-header">
+                                                      <p>
+                                                        <h1 class="modal-title" id="ajoutModalLabel"><strong>AJOUT VOITURE</strong></h1>
+                                                      </p>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+                                                <form action="{{ route('voiture.store') }}" method="GET" >
+                                                    @method('POST')
+                                                    @csrf
+                                                      <div class="modal-body">
+                                                            <div class="row">
+                                                                  <div class="col-sm">
+                                                                        <label for="numIm"><strong>N° Immatriculation</strong></label>
+                                                                        <input type="text" class="form-control" id="numIm" name="numIm"
+                                                                              placeholder="..." required>
+                                                                  </div>
+                                                            </div>
+                                                            <div class="row row-cols-2">
+                                                                  
+                                                                <div class="col-sm-4">
+                                                                      <label for="modelV"><strong>Modèle</strong></label>
+                                                                      <input type="text" class="form-control" id="modelV" name="modelV"
+                                                                              placeholder="..." required>
+                                                                  </div>
+                                                                  <div class="col-sm">
+                                                                        <label for="couleur"><strong>Couleur</strong></label>
+                                                                        <input type="text" class="form-control" id="couleur" name="couleur"
+                                                                            placeholder="...">
+                                                                    </div>
+                                                            </div>
+                                                            <div class="row row-cols-2">                                                 
+                                                                <div class="col-sm">
+                                                                    <label for="moteur"><strong>Moteur</strong></label>
+                                                                    <input type="text" class="form-control" id="moteur" name="moteur"
+                                                                          placeholder="...">
+                                                              </div>
+                                                                <div class="col-sm">
+                                                                    <label for="prixV"><strong>Prix</strong></label>
+                                                                    <input type="text" class="form-control" id="prixV" name="prixV"
+                                                                            placeholder="..." required>
+                                                                </div>
+                                                            </div>
+                                                      </div>
+                                                      <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary mb-3"
+                                                                  data-bs-dismiss="modal">Annuler</button>
+                                                            <button type="submit" class="btn btn-success mb-3" name="ajout_v">Ajouter</button>
+                                                      </div>
+                                                </form>
+                                          </div>
+                                    </div>
+                              </div>
+                                <div class="row g-4 mb-4">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover mb-0" id="tbV">
+                                                <thead>
+                                                    <tr>
+                                                            <th scope="col">ID</th>
+                                                            <th scope="col" class="text-center">N° Immatriculation</th>
+                                                            <th scope="col"class="text-center">model</th>
+                                                            <th scope="col"class="text-center">Moteur</th>
+                                                            <th scope="col"class="text-center">Prix(MGA)</th>
+                                                            <th scope="col"class="text-center">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($result as $voiture)
+                                                    <tr >
+                                                        <td class="col text-right">{{ $voiture->idV}}</td>
+                                                        <td class="col text-center">{{ $voiture->numIm}}</td>
+                                                        <td class="col text-center">{{ $voiture->modelV}}</td>
+                                                        <td class="col text-center">{{ $voiture->moteur}}</td>
+                                                        <td class="col text-center">{{ $voiture->prixV}}</td>
+                                                        <td class="col text-center">
+                                                            <div class="dropdown">
+                                                                <button class="btn" type="button" id="tabDown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <span class="fas fa-ellipsis"></span>
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="tabDown">
+                                                                    <span>
+                                                                        <a href="{{ route('voiture.edit', ['id'=> $voiture->idV]) }}" class="dropdown-item"><i class="fas fa-trash text-primary"></i> <span>Modifier</span></a>
+                                                                    </span>
+                                                                    <span>
+                                                                        <form action="{{ route('voiture.destroy', ['voiture'=> $voiture->idV]) }}" method="POST">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="submit"  class="dropdown-item"><i class="fas fa-trash text-danger"></i><span>Supprimer</span></button>
+                                                                        </form>
+                                                                    </span>
+                                                                    <span>
+                                                                        <form action="{{ route('commande.AjoutPanier') }}" method="POST">
+                                                                            @csrf
+                                                                            @method('POST')
+                                                                            <input type="hidden" name="voiture" value="{{ $voiture->idV }}">
+                                                                            <input type="hidden" name="numIm" value="{{ $voiture->numIm }}">
+                                                                            <input type="hidden" name="modelV" value="{{ $voiture->modelV }}">
+                                                                            <input type="hidden" name="moteur" value="{{ $voiture->moteur }}">
+                                                                            <input type="hidden" name="couleur" value="{{ $voiture->couleur }}">
+                                                                            <input type="hidden" name="prixV" value="{{ $voiture->prixV }}">
+                                                                            <button type="submit" class="dropdown-item"><i class="fas fa-trash text-success"></i><span>Commander</span></button>
+                                                                        </form>
+                                                                    </span>
+                                                                </div>
+                                                             
+                                                            </div>
+                        
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+
+
+
+                </div>   
             </div>
         @endsection
    {{--  script bootstrap  --}}
