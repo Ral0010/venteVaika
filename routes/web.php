@@ -28,6 +28,8 @@ Route::delete('/Voiture/{voiture}/suppr', [voitureControler::class, 'destroy'])-
 Route::get('/Com', [commandeControler::class, 'index'])->name('commande.index');
 
 Route::post('/AjoutPanier', [commandeControler::class, 'AjoutPanier'])->name('commande.AjoutPanier');
+Route::post('/AnnulerCommande', [commandeControler::class, 'AnnulerCommande'])->name('commande.AnnulerCommande');
+
 
 
 //LISTE VENTE
