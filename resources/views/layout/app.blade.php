@@ -15,7 +15,7 @@
               border-radius: 10px;
         }
     </style>
-<body>
+<body style="font-family: cambria">
     <div class="bg-dark col-auto col-md-2 min-vh-100 d-flex flex-column justify-content-between">
         <div class="bg-dark p-2">
              <div>
@@ -25,25 +25,31 @@
                 <li class="nav-item py-2 py-sm-0">
                     <a href="{{ route('voiture.index') }}" class="nav-link text-white" aria-current="page">
                         <i class="fa-solid fa-car"></i>
-                        <span class="nav-link-text">Gestion des voitures</span>
+                        <span class="nav-link-text">GESTION VOITURE</span>
+                    </a>
+                </li>
+                <li class="nav-item py-2 py-sm-0">
+                    <a href="{{ route('client.index') }}" class="nav-link text-white" aria-current="page">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="nav-link-text">CLIENT</span>
                     </a>
                 </li>
                 <li class="nav-item py-2 py-sm-0">
                     <a href="{{ route('commande.index') }}" class="nav-link text-white">
                         <i class="fa-solid fa-layer-group"></i>
-                        <span class="nav-link-text">Commande</span>
+                        <span class="nav-link-text">COMMANDE</span>
                     </a>
                 </li>
                 <li class="nav-item py-2 py-sm-0">
                     <a href="" class="nav-link text-white">
                         <i class="fa-solid fa-diamond"></i>
-                        <span class="nav-link-text">Liste de ventes</span>
+                        <span class="nav-link-text">LISTE DES ACHATS</span>
                     </a>
                 </li>
                 <li class="nav-item py-2 py-sm-0">
                     <a href="{{ route('utilisateur.index') }}" class="nav-link text-white">
                         <i class="fa-solid fa-users"></i>
-                        <span class="nav-link-text">Utilisateur</span>
+                        <span class="nav-link-text">UTILISATEUR</span>
                     </a>
                 </li>
                 
