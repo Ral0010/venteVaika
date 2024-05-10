@@ -32,119 +32,133 @@
                         <li class="alert alert-danger "> {{ $error}} </li>
                     @endforeach
                 </ul>
-                <div class="container bg-light ">
-                        <h1 style="font-family : cambria ; text-align : center; padding: 15px;"><strong>Liste des Client</strong></h1>
-                </div>
-                <div class="app-content container">
-                    <div>
-                        <div class="row py-3">
-                                <div class="col-md-12">
-                                    <div class="float-end d-flex">
-                                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                                                data-bs-target="#ajoutModal">
-                                                <i class="fas fa-plus"></i>&nbsp;<span>Nouveau client</span>
-                                            </button>
-                                    </div> 
-                                </div>
-                        </div>
-                        <div class="modal fade" id="ajoutModal" tabindex="-1" aria-labelledby="ajoutModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                  <div class="modal-content">
-                                        <div class="modal-header">
-                                              <p>
-                                                <h1 class="modal-title" id="ajoutModalLabel"><strong>Nouveau client</strong></h1>
-                                              </p>
-                                              <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
 
-                                        {{-- Formulaire d'ajout --}}
-                                        <form action="{{ route('client.store') }}" method="POST" >
-                                            @method('POST')
-                                            @csrf
-                                              <div class="modal-body">
-                                                    <div class="col-sm">
-                                                        <label for="cinCli"><strong>CIN</strong></label>
-                                                        <input type="text" class="form-control" id="cinCli" name="cinCli"
-                                                                placeholder="..." required>
-                                                    </div>
-                                                    <div class="row">
-                                                          <div class="col-sm">
-                                                                <label for="nomCli"><strong>Nom du client</strong></label>
-                                                                <input type="text" class="form-control" id="nomCli" name="nomCli"
-                                                                      placeholder="..." required>
-                                                          </div>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="telCli"><strong>Téléphone</strong></label>
-                                                        <input type="text" class="form-control" id="telCli" name="telCli"
-                                                                placeholder="..." required>
-                                                         
-                                                    </div>
-                                                    <div class="row row-cols-2">                                                 
-                                                        <div class="col-sm">
-                                                            <label for="adrCli"><strong>Adresse du client</strong></label>
-                                                            <input type="text" class="form-control" id="adrCli" name="adrCli"
-                                                                  placeholder="...">
-                                                      </div>
-                                                    </div>
-                                              </div>
-                                              <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary mb-3"
-                                                          data-bs-dismiss="modal">Annuler</button>
-                                                    <button type="submit" class="btn btn-success mb-3" name="ajout_v">Ajouter</button>
-                                              </div>
-                                        </form>
-                                  </div>
-                            </div>
-                      </div>
-                        <div class="row g-4 mb-4">
-                            <div class="table-responsive">
-                                <table class="table table-hover mb-0" id="tbV">
-                                        <thead>
-                                            <tr>
-                                                    <th scope="col" class="text-center">CIN</th>
-                                                    <th scope="col"class="text-center">Nom</th>
-                                                    <th scope="col"class="text-center">Teléphone</th>
-                                                    <th scope="col"class="text-center">Adresse</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($clients as $client)
-                                            <tr >
-                                                <td class="col text-right">{{ $client->cinCli}}</td>
-                                                <td class="col text-center">{{ $client->nomCli}}</td>
-                                                <td class="col text-center">{{ $client->telCli}}</td>
-                                                <td class="col text-center">{{ $client->adrCli}}</td>
-                                                <td class="col text-center">
-                                                    <div class="dropdown">
-                                                        <button class="btn" type="button" id="tabDown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <span class="fas fa-ellipsis"></span>
-                                                        </button>
-                                                        <div class="dropdown-menu" aria-labelledby="tabDown" style="z-index: 1">
-                                                            <span>
-                                                                <a href="{{ route('client.edit', ['idCli'=> $client->idCli]) }}" class="dropdown-item"><i class="fas fa-trash text-primary"></i> <span>Modifier</span></a>
-                                                            </span>
-                                                            <span>
-                                                                <form action="{{ route('client.destroy', ['client'=> $client->idCli]) }}" method="POST">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="submit"  class="dropdown-item"><i class="fas fa-trash text-danger"></i><span>Supprimer</span></button>
-                                                                </form>
-                                                            </span>
-                                                        </div>
-                                                        
-                                                    </div>
-                                
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                </table>
-                            </div>
+                <div class="card">
+
+                    <div class="card-header">
+                        <div style="float: left">
+                                <h1 style="font-family : cambria ; text-align : center;"><strong>Liste des Client</strong></h1>
                         </div>
+                        <div style="float: right; margin-top: 10px">
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#ajoutModal">
+                                <i class="fas fa-plus"></i>&nbsp;<span>Nouveau client</span>
+                            </button>
+                        </div> 
                     </div>
-                </div>    
+
+                    <div class="card-body">
+                        <div class="app-content container">
+                            <div>
+                                <div class="row py-3">
+                                        <div class="col-md-12">
+                                            
+                                        </div>
+                                </div>
+                                <div class="modal fade" id="ajoutModal" tabindex="-1" aria-labelledby="ajoutModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                          <div class="modal-content">
+                                                <div class="modal-header">
+                                                      <p>
+                                                        <h1 class="modal-title" id="ajoutModalLabel"><strong>Nouveau client</strong></h1>
+                                                      </p>
+                                                      <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+        
+                                                {{-- Formulaire d'ajout --}}
+                                                <form action="{{ route('client.store') }}" method="POST" >
+                                                    @method('POST')
+                                                    @csrf
+                                                      <div class="modal-body">
+                                                            <div class="col-sm">
+                                                                <label for="cinCli"><strong>CIN</strong></label>
+                                                                <input type="text" class="form-control" id="cinCli" name="cinCli"
+                                                                        placeholder="..." required>
+                                                            </div>
+                                                            <div class="row">
+                                                                  <div class="col-sm">
+                                                                        <label for="nomCli"><strong>Nom du client</strong></label>
+                                                                        <input type="text" class="form-control" id="nomCli" name="nomCli"
+                                                                              placeholder="..." required>
+                                                                  </div>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="telCli"><strong>Téléphone</strong></label>
+                                                                <input type="text" class="form-control" id="telCli" name="telCli"
+                                                                        placeholder="..." required>
+                                                                 
+                                                            </div>
+                                                            <div class="row row-cols-2">                                                 
+                                                                <div class="col-sm">
+                                                                    <label for="adrCli"><strong>Adresse du client</strong></label>
+                                                                    <input type="text" class="form-control" id="adrCli" name="adrCli"
+                                                                          placeholder="...">
+                                                              </div>
+                                                            </div>
+                                                      </div>
+                                                      <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary mb-3"
+                                                                  data-bs-dismiss="modal">Annuler</button>
+                                                            <button type="submit" class="btn btn-success mb-3" name="ajout_v">Ajouter</button>
+                                                      </div>
+                                                </form>
+                                          </div>
+                                    </div>
+                              </div>
+                                <div class="row g-4 mb-4">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover mb-0" id="tbV">
+                                                <thead>
+                                                    <tr>
+                                                            <th scope="col" class="text-center">CIN</th>
+                                                            <th scope="col"class="text-center">Nom</th>
+                                                            <th scope="col"class="text-center">Teléphone</th>
+                                                            <th scope="col"class="text-center">Adresse</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($clients as $client)
+                                                    <tr >
+                                                        <td class="col text-right">{{ $client->cinCli}}</td>
+                                                        <td class="col text-center">{{ $client->nomCli}}</td>
+                                                        <td class="col text-center">{{ $client->telCli}}</td>
+                                                        <td class="col text-center">{{ $client->adrCli}}</td>
+                                                        <td class="col text-center">
+                                                            <div class="dropdown">
+                                                                <button class="btn" type="button" id="tabDown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                    <span class="fas fa-ellipsis"></span>
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="tabDown" style="z-index: 1">
+                                                                    <span>
+                                                                        <a href="{{ route('client.edit', ['idCli'=> $client->idCli]) }}" class="dropdown-item"><i class="fas fa-trash text-primary"></i> <span>Modifier</span></a>
+                                                                    </span>
+                                                                    <span>
+                                                                        <form action="{{ route('client.destroy', ['client'=> $client->idCli]) }}" method="POST">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="submit"  class="dropdown-item"><i class="fas fa-trash text-danger"></i><span>Supprimer</span></button>
+                                                                        </form>
+                                                                    </span>
+                                                                </div>
+                                                                
+                                                            </div>
+                                        
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+
+                    </div>
+
+
+
+                </div>
             </div>
         @endsection
    {{--  script bootstrap  --}}
