@@ -35,13 +35,68 @@
                 </p>
                 <div class="row">
                     <div class="col-md-4">
-                        <select class="form-select" aria-label="Default select example">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                          </select>
+                        <select class="form-select" name="client" defaultValue="">
+                            <option value="" selected disabled hidden>Choisir un client</option>
+                            @foreach ($listeCli as $client)
+                                <option value="{{ $client->idCli  }}">{{ $client->nomCli }}</option>
+                            @endforeach
+                        </select>                        
                     </div>
-                    <div class="col-md-8"></div>
+                    <div class="col-md-8">
+                        <button class="btn btn-secondary btn-sm" data-bs-toggle="modal"
+                        data-bs-target="#ajoutModal">Nouveau client</button>
+                    </div>
+                    <div class="modal fade" id="ajoutModal" tabindex="-1" aria-labelledby="ajoutModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                              <div class="modal-content">
+                                    <div class="modal-header">
+                                          <p>
+                                            <h1 class="modal-title" id="ajoutModalLabel"><strong>Nouveau client</strong></h1>
+                                          </p>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+
+                                    {{-- Formulaire d'ajout --}}
+                                    <form action="{{ route('client.store2commande') }}" method="POST" >
+                                        @method('POST')
+                                        @csrf
+                                          <div class="modal-body">
+                                                <div class="col-sm">
+                                                    <label for="cinCli"><strong>CIN</strong></label>
+                                                    <input type="text" class="form-control" id="cinCli" name="cinCli"
+                                                            placeholder="..." required>
+                                                </div>
+                                                <div class="row">
+                                                      <div class="col-sm">
+                                                            <label for="nomCli"><strong>Nom du client</strong></label>
+                                                            <input type="text" class="form-control" id="nomCli" name="nomCli"
+                                                                  placeholder="..." required>
+                                                      </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <label for="telCli"><strong>Téléphone</strong></label>
+                                                    <input type="text" class="form-control" id="telCli" name="telCli"
+                                                            placeholder="..." required>
+                                                     
+                                                </div>
+                                                <div class="row row-cols-2">                                                 
+                                                    <div class="col-sm">
+                                                        <label for="adrCli"><strong>Adresse du client</strong></label>
+                                                        <input type="text" class="form-control" id="adrCli" name="adrCli"
+                                                              placeholder="...">
+                                                  </div>
+                                                </div>
+                                          </div>
+                                          <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary mb-3"
+                                                      data-bs-dismiss="modal">Annuler</button>
+                                                <button type="submit" class="btn btn-success mb-3" name="ajout_v">Ajouter</button>
+                                          </div>
+                                    </form>
+                              </div>
+                        </div>
+                  </div>
                 </div>
                     <div class="row">
                           <div class="col-md-4">

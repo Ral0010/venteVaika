@@ -15,7 +15,13 @@ class commandeControler extends Controller
     public function index()
     {
         $panier = $this->affichagePanier();
-        return view('commande.com', compact('panier'));
+
+        $listeCli = $this->listClient();
+
+        return view('commande.com', [
+            'panier' => $panier,
+            'listeCli' => $listeCli,
+        ]);
     }
 
 
@@ -112,5 +118,11 @@ class commandeControler extends Controller
 
         DB::table('commande_temp')->where('idV', $voitureId)->delete();
         return redirect()->route('commande.index');
+    }
+
+    public function listClient()
+    {
+        $listCli =  DB::table('clients')->get();
+        return $listCli;
     }
 }
