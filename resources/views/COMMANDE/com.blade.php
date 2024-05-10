@@ -27,13 +27,16 @@
                             <h6><i><b>Selectionner le client</b></i></h6>
                         </p>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-8">
                                 <select class="form-select" name="client" defaultValue="">
                                     <option value="" selected disabled hidden>Choisir un client</option>
                                     @foreach ($listeCli as $client)
-                                        <option value="{{ $client->idCli  }}">{{ $client->nomCli }}</option>
+                                        <option value="{{ $client->idCli }}" class="form-select">
+                                            {{ $client->nomCli }} &nbsp;&nbsp; CIN: {{$client->cinCli}}&nbsp; &nbsp; Tel: {{$client->telCli}}&nbsp; &nbsp; Adresse: {{$client->adrCli}}
+                                        </option>
                                     @endforeach
-                                </select>                        
+                                </select>
+                                                   
                             </div>
                             
                             <div class="modal fade" id="ajoutModal" tabindex="-1" aria-labelledby="ajoutModalLabel" aria-hidden="true">
@@ -88,20 +91,7 @@
                                 </div>
                           </div>
                         </div>
-                            <div class="row">
-                                  <div class="col-md-4">
-                                        <label for="nomCli">CIN:</label>
-                                        <input type="text" name="nomCli" id="nomCli" class="form-control" required>
-                                  </div>
-                                  <div class="col-md-4">
-                                    <label for="adresseCli">Nom:</label>
-                                    <input type="text" name="adresseCli" id="adresseCli" class="form-control">
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="contactCli">Téléphone:</label>
-                                    <input type="text" name="contactCli" id="contactCli" class="form-control">
-                                </div>
-                            </div>
+                            
                             <hr style="margin-top: 50px">
                             <div class="d-flex" style="flex-direction: column">
                                 <div class="col-sm">
