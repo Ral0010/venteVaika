@@ -15,7 +15,7 @@
               border-radius: 10px;
         }
     </style>
-<body>
+<body style="font-family: cambria">
     <div class="bg-dark col-auto col-md-2 min-vh-100 d-flex flex-column justify-content-between">
         <div>
            <img src="{{ asset('image/logo.avif') }}" alt="" width="100%" style="margin: 0; border-radius: 50%">

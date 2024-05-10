@@ -18,7 +18,7 @@ use App\Http\Controllers\VenteController;
 |
 */
 //VOITURE
-Route::get('/Voiture', [voitureControler::class, 'index'])->name('voiture.index');
+Route::get('/', [voitureControler::class, 'index'])->name('voiture.index');
 Route::get('/Voiture/store', [voitureControler::class, 'store'])->name('voiture.store');
 Route::get('/Voiture/create', [voitureControler::class, 'create'])->name('voiture.create');
 Route::get('/Voiture/{id}/edit', [voitureControler::class, 'edit'])->name('voiture.edit');
