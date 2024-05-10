@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class commande extends Model
 {
     use HasFactory;
-}
+    protected $primaryKey = 'idComm';
+    protected $fillable = [
+        'idCli',
+        'cinCli',
+        'nomCli',
+        'idV',
+        'modelV',
+        'numIm',
+        'prixV'
+    ];
+   }

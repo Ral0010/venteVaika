@@ -77,9 +77,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-                
-            
+            </div>                 
         </div>
         <div class="modal fade" id="ajoutUtilisateur" tabindex="-1" aria-labelledby="ajoutUtilisateurLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -88,7 +86,7 @@
                         <h1 class="modal-title fs-5" id="ajoutUtilisateurLabel">Ajout d'un nouveau administrateur ou un utilisateur</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="./models/utilisateur.php" method="post">
+                    <form action="" method="post">
                         <div class="modal-body">
                             <div class="container-fluid">
                                 <div class="row">
@@ -133,7 +131,6 @@
             </div>
         </div>
         @endsection
-
         {{--  script bootstrap  --}}
         <script src="{{ asset('dist/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('dist/js/bootstrap.bundle.min.js') }}"></script>

@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <p>
-                    <h2 style="font-family : garamond;"><strong>Liste commandes</strong></h2>
+                    <h2 style="font-family : garamond;"><strong>Liste panier</strong></h2>
                 </p>
                 <hr>
                 <div class="row g-4 mb-4">
@@ -71,30 +71,35 @@
                                     <th scope="col" class="text-center">N° Immatriculation</th>
                                     <th scope="col"class="text-center">model</th>
                                     <th scope="col"class="text-center">Moteur</th>
+                                    <th scope="col"class="text-center">Couleur</th>
                                     <th scope="col"class="text-center">Prix(MGA)</th>
                                     <th scope="col"class="text-center">Action</th>
                                 </tr>
                             </thead>
-                            <tbody>                                      
-                                <tr>
-                                        <td>a</td>
-                                        <td>b</td>
-                                        <td>c</td>
-                                        <td>d</td>
-                                        <td>e</td>
-                                        <td>e</td>
-                                </tr>
+                            <tbody> 
+                                @foreach ($panier as $pani)                                     
+                                    <tr>
+                                        <td class="col text-right">{{ $pani->idV}}</td>
+                                        <td class="col text-center">{{ $pani->numIm}}</td>
+                                        <td class="col text-center">{{ $pani->modelV}}</td>
+                                        <td class="col text-center">{{ $pani->moteur}}</td>
+                                        <td class="col text-center">{{ $pani->couleur}}</td>
+                                        <td class="col text-center">{{ $pani->prixV}}</td>
+                                        <td class="col text-center">
+                                            <form action="{{ route('commande.AnnulerCommande') }}" method="POST">
+                                                @csrf
+                                                @method('POST')
+                                                <input type="hidden" name="voiture" value="{{ $pani->idV }}">
+                                                <button type="submit" class="btn btn-danger btn-sm">Annuler</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div> 
-                <div class="row py-3">
-                        <div class="col-md-12" style="text-align: right">
-                            <div class="float-end">
-                                <h6><strong>Qté: 12</strong></h6>
-                                <h6><strong>Montant Total : 16000 Ariary</strong></h6>
-                            </div>
-                        </div>
+               </div>
                 </div> 
               </div>
         @endsection

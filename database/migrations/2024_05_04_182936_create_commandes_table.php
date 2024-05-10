@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('commandes', function (Blueprint $table) {
             $table->id('idComm');
             $table->integer('idCli');
+            $table->text('cinCli', 50);
+            $table->text('nomCli', 50);
             $table->integer('idV');
             $table->text('modelV', 50);
-            $table->date('dateComm');
-            $table->text('nomUt', 50);
+            $table->text('numIm', 20);
+            $table->decimal('prixV', 15, 2);
             $table->timestamps();
         });
     }

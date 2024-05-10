@@ -34,20 +34,23 @@
                         <span class="nav-link-text">CLIENT</span>
                     </a>
                 </li>
+                <hr>
                 <li class="nav-item py-2 py-sm-0">
                     <a href="{{ route('commande.index') }}" class="nav-link text-white">
                         <i class="fa-solid fa-layer-group"></i>
                         <span class="nav-link-text">COMMANDE</span>
                     </a>
                 </li>
+                <hr>
                 <li class="nav-item py-2 py-sm-0">
                     <a href="" class="nav-link text-white">
                         <i class="fa-solid fa-diamond"></i>
                         <span class="nav-link-text">LISTE DES ACHATS</span>
                     </a>
                 </li>
+                <hr>
                 <li class="nav-item py-2 py-sm-0">
-                    <a href="{{ route('utilisateur.index') }}" class="nav-link text-white">
+                    <a href="{{ route('client.index') }}" class="nav-link text-white">
                         <i class="fa-solid fa-users"></i>
                         <span class="nav-link-text">UTILISATEUR</span>
                     </a>
