@@ -12,6 +12,4 @@ class VenteController extends Controller
         $ventes = commande::all();
         return view('Vente.index', ['ventes' => $ventes]);
     }
-
-
 }
