@@ -44,7 +44,7 @@
                 </li>
                 <hr>
                 <li class="nav-item py-2 py-sm-0">
-                    <a href="{{ route('utilisateur.index') }}" class="nav-link text-white">
+                    <a href="{{ route('client.index') }}" class="nav-link text-white">
                         <i class="fa-solid fa-users"></i>
                         <span class="nav-link-text">Clients</span>
                     </a>
