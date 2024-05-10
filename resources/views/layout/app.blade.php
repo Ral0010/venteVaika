@@ -8,7 +8,7 @@
 </head>
     <style>
         .nav-pills li a:hover {
-              background-color:  rgb(31, 104, 59);
+              background-color:  rgb(12, 126, 172);
         }
         .dropdown-item:hover {
               background-color: rgb(31, 104, 59);
@@ -17,36 +17,36 @@
     </style>
 <body>
     <div class="bg-dark col-auto col-md-2 min-vh-100 d-flex flex-column justify-content-between">
-        <div class="bg-dark p-2">
-             <div>
-                <img src="{{ asset('image/vim.ico') }}" alt="" width="100%" height="70px">
-             </div>
-             <ul class="nav nav-pills flex-column mt-4 ">
+        <div>
+           <img src="{{ asset('image/logo.avif') }}" alt="" width="100%" style="margin: 0; border-radius: 50%">
+        </div>
+        <div class="bg-dark p-2" style="margin-top: -170px; padding: 0">
+             <ul class="nav nav-pills flex-column">
                 <li class="nav-item py-2 py-sm-0">
                     <a href="{{ route('voiture.index') }}" class="nav-link text-white" aria-current="page">
                         <i class="fa-solid fa-car"></i>
-                        <span class="nav-link-text">Gestion des voitures</span>
+                        <span class="nav-link-text" style="margin-left: 10px">Voitures</span>
                     </a>
                 </li>
                 <hr>
                 <li class="nav-item py-2 py-sm-0">
                     <a href="{{ route('commande.index') }}" class="nav-link text-white">
                         <i class="fa-solid fa-layer-group"></i>
-                        <span class="nav-link-text">Panier</span>
+                        <span class="nav-link-text" style="margin-left: 10px">Panier</span>
                     </a>
                 </li>
                 <hr>
                 <li class="nav-item py-2 py-sm-0">
-                    <a href="" class="nav-link text-white">
+                    <a href="{{ route('vente.index') }}" class="nav-link text-white">
                         <i class="fa-solid fa-diamond"></i>
-                        <span class="nav-link-text">Historique des ventes</span>
+                        <span class="nav-link-text" style="margin-left: 10px">Journal de ventes</span>
                     </a>
                 </li>
                 <hr>
                 <li class="nav-item py-2 py-sm-0">
                     <a href="{{ route('client.index') }}" class="nav-link text-white">
                         <i class="fa-solid fa-users"></i>
-                        <span class="nav-link-text">Clients</span>
+                        <span class="nav-link-text" style="margin-left: 10px">Clients</span>
                     </a>
                 </li>
                 
