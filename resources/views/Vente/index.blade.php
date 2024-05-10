@@ -32,39 +32,43 @@
                         <li class="alert alert-danger "> {{ $error}} </li>
                     @endforeach
                 </ul>
-                <div class="container bg-light ">
-                        <h1 style="font-family : cambria ; text-align : center; padding: 15px;"><strong>Liste des Client</strong></h1>
-                </div>
+                <br>
                 <div class="app-content container">
-                    <div>                   
-                        <div class="row g-4 mb-4">
-                            <div class="table-responsive">
-                                <table class="table table-hover mb-0" id="tbV">
-                                        <thead>
-                                            <tr>
-                                                    <th scope="col" class="text-center">CIN</th>
-                                                    <th scope="col"class="text-center">Nom</th>
-                                                    <th scope="col"class="text-center">Model</th>
-                                                    <th scope="col"class="text-center">Immatriculation</th>
-                                                    <th scope="col"class="text-center">Prix</th>
-                                                    <th scope="col"class="text-center">Date</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($ventes as $vente)
-                                            <tr >
-                                                <td class="col text-right">{{ $vente->cinCli}}</td>
-                                                <td class="col text-center">{{ $vente->nomCli}}</td>
-                                                <td class="col text-center">{{ $vente->modelV}}</td>
-                                                <td class="col text-center">{{ $vente->numIm}}</td>
-                                                <td class="col text-center">{{ $vente->prixV}}</td>
-                                                <td class="col text-center">{{ $vente->created_at}}</td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                </table>
+                    <div class="card" style="min-height: 600px">  
+                        <div class="card-header">
+                                <h1 style="font-family : cambria ; text-align : center;"><strong>Historique des ventes</strong></h1>
+                        </div>      
+                        <div class="card-body">
+                            <div class="row g-4 mb-4">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-0" id="tbV">
+                                            <thead>
+                                                <tr>
+                                                        <th scope="col" class="text-center">CIN</th>
+                                                        <th scope="col"class="text-center">Nom</th>
+                                                        <th scope="col"class="text-center">Model</th>
+                                                        <th scope="col"class="text-center">Immatriculation</th>
+                                                        <th scope="col"class="text-center">Prix</th>
+                                                        <th scope="col"class="text-center">Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($ventes as $vente)
+                                                <tr >
+                                                    <td class="col text-right">{{ $vente->cinCli}}</td>
+                                                    <td class="col text-center">{{ $vente->nomCli}}</td>
+                                                    <td class="col text-center">{{ $vente->modelV}}</td>
+                                                    <td class="col text-center">{{ $vente->numIm}}</td>
+                                                    <td class="col text-center">{{ $vente->prixV}}</td>
+                                                    <td class="col text-center">{{ $vente->created_at}}</td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </div>
+                        </div>           
+                        
                     </div>
                 </div>    
             </div>
