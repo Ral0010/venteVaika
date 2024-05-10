@@ -14,8 +14,7 @@ class commandeControler extends Controller
      */
     public function index()
     {
-        $clients = client::all();
-        return view('commande.com', ['clients' => $clients]);
+        return view('commande.com');
     }
 
     public function AjoutPanier(Request $req)
