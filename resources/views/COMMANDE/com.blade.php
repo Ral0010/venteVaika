@@ -15,22 +15,13 @@
     <div class="d-flex">
         @extends('layout/app')
         @section('content')
-            <div class="container">              
+            <div class="card">
+                <div class="card-header">
+                
+                </div>              
                 <div class="row" style="padding: 10px;">
-                    <div class="col-sm">
-                        <div class="float-start">
-                            <a href="" style="font-size: 30px;"
-                                  class="link-secondary link-underline link-underline-opacity-0"><i class="fa-solid fa-left-long" style="color: #0d6efd;"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-sm">
-                        <div class="float-end">                                   
-                            <button type="button" name="validerComm" class="btn btn-success">Valider commande</button>
-                        </div>
-                  </div>
                 <p>
-                    <h2 style="font-family : garamond;"><strong>INFOS CLIENT</strong></h2>
+                    <h2 style="font-family : garamond;"><strong>Panier</strong></h2>
                     <h6><i><b>Selectionner le client</b></i></h6>
                 </p>
                 <div class="row">
@@ -55,6 +46,11 @@
                         <div class="col-md-4">
                             <label for="contactCli">Téléphone:</label>
                             <input type="text" name="contactCli" id="contactCli" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="float-end">                                   
+                            <button type="button" name="validerComm" class="btn btn-success">Valider commande</button>
                         </div>
                     </div>
                 </div>
