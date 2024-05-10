@@ -10,8 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>voiture</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
-    {{-- <link href="{{ asset('dist/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('icon/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ asset('icon/css/fontawesome.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css">
@@ -108,19 +107,20 @@
                               </div>
                                 <div class="row g-4 mb-4">
                                     <div class="table-responsive">
-                                        <table class="table table-hover mb-0" id="tbV">
+                                        <table class="table table-hover mb-0" id="tbCli">
                                                 <thead>
                                                     <tr>
                                                             <th scope="col" class="text-center">CIN</th>
                                                             <th scope="col"class="text-center">Nom</th>
                                                             <th scope="col"class="text-center">Teléphone</th>
                                                             <th scope="col"class="text-center">Adresse</th>
+                                                            <th scope="col"class="text-center">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($clients as $client)
                                                     <tr >
-                                                        <td class="col text-right">{{ $client->cinCli}}</td>
+                                                        <td class="col text-center">{{ $client->cinCli}}</td>
                                                         <td class="col text-center">{{ $client->nomCli}}</td>
                                                         <td class="col text-center">{{ $client->telCli}}</td>
                                                         <td class="col text-center">{{ $client->adrCli}}</td>
@@ -163,17 +163,30 @@
         @endsection
    {{--  script bootstrap  --}}
    <script src="{{ asset('dist/jquery/jquery.min.js') }}"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-   {{-- <script src="{{ asset('dist/js/bootstrap.bundle.min.js') }}"></script> --}}
+   <script src="{{ asset('dist/js/bootstrap.bundle.min.js') }}"></script>
    <script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
 	<script>
         //datatable
         $(document).ready(function () {
             
-            $('#tbV').DataTable();
+            $('#tbCli').DataTable();
         });
-    
+        
+        //control champ
+        document.addEventListener('DOMContentLoaded', function() {
+                let cinCli = document.getElementById('cinCli');
+                function controlerChamp() {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                }
+                cinCli.addEventListener('input', controlerChamp);
+
+                let telCli = document.getElementById('telCli');
+                function controlerChamp() {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                }
+                telCli.addEventListener('input', controlerChamp);
+        });
     </script>
 </body>
 </html>
