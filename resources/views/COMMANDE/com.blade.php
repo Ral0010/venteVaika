@@ -23,19 +23,40 @@
                 
                 <div class="card-body">
                     <div class="row" style="padding: 10px;">
+                       
+                            
                         <p>
                             <h6><i><b>Selectionner le client</b></i></h6>
                         </p>
                         <div class="row">
                             <div class="col-md-8">
-                                <select class="form-select" name="client" defaultValue="">
-                                    <option value="" selected disabled hidden>Choisir un client</option>
-                                    @foreach ($listeCli as $client)
-                                        <option value="{{ $client->idCli }}" class="form-select">
-                                            {{ $client->nomCli }} &nbsp;&nbsp; CIN: {{$client->cinCli}}&nbsp; &nbsp; Tel: {{$client->telCli}}&nbsp; &nbsp; Adresse: {{$client->adrCli}}
-                                        </option>
-                                    @endforeach
-                                </select>
+                                <form action="{{ route('commande.store') }}" method="POST">
+                                    @csrf
+                                    @method('POST')
+                                    <select class="form-select" name="client" defaultValue="">
+                                        <option value="" selected disabled hidden>Choisir un client</option>
+                                        @foreach ($listeCli as $client)
+                                            <option value="{{ $client->idCli }}" class="form-select">
+                                                {{ $client->nomCli }} &nbsp;&nbsp; CIN: {{$client->cinCli}}&nbsp; &nbsp; Tel: {{$client->telCli}}&nbsp; &nbsp; Adresse: {{$client->adrCli}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <div class="row">
+                                    <div class="col-sm" >
+                                        <div class="float-start" style="display: flex; margin-top: 10px">  
+                                        <button class="btn btn-primary" style="width: 160px" data-bs-toggle="modal"
+                                        data-bs-target="#ajoutModal">Nouveau client</button>
+                                        </div>
+                                    </div> 
+                                    <div class="col-sm">
+                                        <div class="float-end" style="display: flex; margin-top: 10px">  
+                                            <button type="submit" name="validerComm" class="btn btn-success" style="width: 160px">Valider commande</button>                                
+                                        </div>
+                                    </div>
+                                    </div>
+                                </form>
+
+                                    
                                                    
                             </div>
                             
@@ -96,20 +117,15 @@
                             <div class="d-flex" style="flex-direction: column">
                                 <div class="col-sm">
                                     <div class="float-end" style="display: flex; margin-top: 10px">  
-                                        <div class="col-md-12 d-flex" style="display: flex; justify-content: space-between;" >
-                                            <button class="btn btn-primary" style="width: 160px" data-bs-toggle="modal"
-                                            data-bs-target="#ajoutModal">Nouveau client</button>
-                                        </div>                                 
+                                                                        
                                     </div>
                                 </div>
-                                <div class="col-sm">
-                                    <div class="float-end" style="display: flex; margin-top: 10px">  
-                                        <button type="button" name="validerComm" class="btn btn-success" style="width: 160px">Valider commande</button>                                
-                                    </div>
-                                </div>
+                                
                             </div>
-                            
+                        
                         </div>
+
+
                         <hr>
                         <div class="card-header">
                             <h2 style="font-family : garamond;"><strong>Panier</strong></h2>
