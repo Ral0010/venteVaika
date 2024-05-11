@@ -159,7 +159,7 @@
                                                         @csrf
                                                         @method('POST')
                                                         <input type="hidden" name="voiture" value="{{ $pani->idV }}">
-                                                        <button type="submit" class="btn btn-danger btn-sm">X</button>
+                                                        <button type="submit" class="btn"><i class="fas fa-trash text-danger"></i></button>                                                     
                                                     </form>
                                                 </td>
                                             </tr>

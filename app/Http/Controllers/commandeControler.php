@@ -128,7 +128,7 @@ class commandeControler extends Controller
                 'etat' => "EN_COURS",
             ]);
 
-        return redirect()->route('voiture.index')->with('status', 'Ajout dans le panier');
+        return redirect()->route('voiture.index')->with('status', 'Ajout succés dans le panier');
     }
 
     public function affichagePanier()

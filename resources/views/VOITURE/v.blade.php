@@ -118,7 +118,7 @@
                                                             <th scope="col"class="text-center">model</th>
                                                             <th scope="col"class="text-center">Moteur</th>
                                                             <th scope="col"class="text-center">Prix(MGA)</th>
-                                                            <th scope="col"class="text-center">Action</th>
+                                                            <th scope="col" class="text-center">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -134,7 +134,7 @@
                                                                 <button class="btn" type="button" id="tabDown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                     <span class="fas fa-ellipsis"></span>
                                                                 </button>
-                                                                <div class="dropdown-menu" aria-labelledby="tabDown">
+                                                                <div class="dropdown-menu" aria-labelledby="tabDown" style="z-index: 1">
                                                                     <span>
                                                                         <a href="{{ route('voiture.edit', ['id'=> $voiture->idV]) }}" class="dropdown-item"><i class="fas fa-trash text-primary"></i> <span>Modifier</span></a>
                                                                     </span>
@@ -145,24 +145,22 @@
                                                                             <button type="submit"  class="dropdown-item"><i class="fas fa-trash text-danger"></i><span>Supprimer</span></button>
                                                                         </form>
                                                                     </span>
-                                                                    <span>
-                                                                        <form action="{{ route('commande.AjoutPanier') }}" method="POST">
-                                                                            @csrf
-                                                                            @method('POST')
-                                                                            <input type="hidden" name="voiture" value="{{ $voiture->idV }}">
-                                                                            <input type="hidden" name="numIm" value="{{ $voiture->numIm }}">
-                                                                            <input type="hidden" name="modelV" value="{{ $voiture->modelV }}">
-                                                                            <input type="hidden" name="moteur" value="{{ $voiture->moteur }}">
-                                                                            <input type="hidden" name="couleur" value="{{ $voiture->couleur }}">
-                                                                            <input type="hidden" name="prixV" value="{{ $voiture->prixV }}">
-                                                                            <button type="submit" class="dropdown-item"><i class="fas fa-trash text-success"></i><span>Commander</span></button>
-                                                                        </form>
-                                                                    </span>
-                                                                </div>
-                                                             
+                                                                </div> 
                                                             </div>
-                        
-                                                        </td>
+                                                            <div>
+                                                                <form action="{{ route('commande.AjoutPanier') }}" method="POST">
+                                                                    @csrf
+                                                                    @method('POST')
+                                                                    <input type="hidden" name="voiture" value="{{ $voiture->idV }}">
+                                                                    <input type="hidden" name="numIm" value="{{ $voiture->numIm }}">
+                                                                    <input type="hidden" name="modelV" value="{{ $voiture->modelV }}">
+                                                                    <input type="hidden" name="moteur" value="{{ $voiture->moteur }}">
+                                                                    <input type="hidden" name="couleur" value="{{ $voiture->couleur }}">
+                                                                    <input type="hidden" name="prixV" value="{{ $voiture->prixV }}">
+                                                                    <button type="submit" class="btn btn-success btn-sm"><i class="fa-solid fa-plus"></i></button>
+                                                                </form>
+                                                            </div>
+                                                        </td>                                                                                                                 
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
